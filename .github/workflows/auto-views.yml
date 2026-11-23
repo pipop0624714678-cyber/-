@@ -1,0 +1,17 @@
+name: Auto Profile Views
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # ตั้งเวลาให้รันอัตโนมัติทุกๆ 30 นาที
+  workflow_dispatch: # เพิ่มปุ่มให้เรากดสั่งรันเองได้ตลอดเวลา
+
+jobs:
+  hit-counter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Increase Views
+        run: |
+          for i in {1..50}; do
+            curl -s "https://komarev.com/ghpvc/?username=nofeedpleasetiktok" > /dev/null
+            sleep 1
+          done
